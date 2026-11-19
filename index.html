@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salma Ahmed — Software Engineering Portfolio</title>
+<meta name="description" content="Salma Ahmed — Software Engineering with Electronics. Projects in machine learning, embedded systems and web development.">
+<meta property="og:title" content="Salma Ahmed — Software Engineering Portfolio">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://salmaahmed.dev/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233a1d4c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='white' text-anchor='middle'%3ESA%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf7f2;
+  --paper:#ffffff;
+  --ink:#2a1f33;
+  --ink-soft:#5d5266;
+  --ink-faint:#8b8192;
+  --plum:#5b2e74;
+  --plum-dark:#3a1d4c;
+  --rose:#d4618f;
+  --rose-soft:#fbe7ef;
+  --sage:#6f9e84;
+  --sage-soft:#e7f1ea;
+  --gold:#e2b25b;
+  --line:#ebe2e8;
+  --shadow:0 1px 2px rgba(58,29,76,.05), 0 12px 32px rgba(58,29,76,.08);
+  --shadow-lg:0 2px 6px rgba(58,29,76,.06), 0 26px 60px rgba(58,29,76,.14);
+  --slab:"Roboto Slab", Georgia, serif;
+  --sans:"DM Sans", system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; font-family:var(--sans); color:var(--ink); line-height:1.7; font-size:16px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(212,97,143,.12), transparent 30rem),
+    radial-gradient(circle at 100% 12%, rgba(111,158,132,.14), transparent 32rem),
+    var(--bg)}
+img{max-width:100%; display:block}
+a{color:var(--plum)}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--rose); outline-offset:3px; border-radius:6px}
+h1,h2,h3{font-family:var(--slab); font-weight:400; letter-spacing:-.015em; color:var(--plum-dark); margin:0}
+h2{font-size:clamp(32px,4.2vw,50px); line-height:1.1}
+p{margin:0 0 1rem; color:var(--ink-soft)}
+svg.lucide{width:18px; height:18px; flex:none}
+.wrap{width:min(1120px, calc(100% - 40px)); margin-left:auto; margin-right:auto}
+.section{padding:96px 0}
+
+/* ---------- labels ---------- */
+.hand{display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--rose); margin-bottom:14px}
+.hand::before{content:""; width:24px; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--rose),var(--sage))}
+.chapter{display:inline-block; padding:8px 15px; border-radius:999px; background:var(--paper); border:1px solid var(--line); font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--plum); box-shadow:var(--shadow)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky; top:0; z-index:50; display:flex; justify-content:flex-end; align-items:center; gap:16px; padding:14px max(20px, calc((100% - 1120px)/2)); background:rgba(251,247,242,.88); backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
+.nav nav{display:flex; align-items:center; gap:26px}
+.nav nav a{position:relative; font-size:14.5px; font-weight:600; color:var(--ink-soft); text-decoration:none; transition:color .2s}
+.nav nav a:not(.hello)::after{content:""; position:absolute; left:0; right:0; bottom:-5px; height:2px; border-radius:2px; background:var(--rose); transform:scaleX(0); transform-origin:left; transition:transform .25s}
+.nav nav a:hover{color:var(--plum-dark)}
+.nav nav a:hover::after{transform:scaleX(1)}
+.nav nav a.hello{padding:8px 17px; border-radius:999px; background:var(--plum-dark); color:#fff; transition:background .2s, transform .2s}
+.nav nav a.hello:hover{background:var(--plum); transform:translateY(-1px)}
+.nav > button{display:none; border:1px solid var(--line); background:var(--paper); border-radius:10px; padding:7px 9px; color:var(--plum-dark); cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; padding:84px 0 70px}
+.hero h1{font-weight:300; font-size:clamp(46px,6.4vw,84px); line-height:1.03; letter-spacing:-.025em; margin:24px 0 26px}
+.hero h1 em{font-style:normal; font-weight:400; background:linear-gradient(100deg,var(--plum) 0%,var(--rose) 100%); -webkit-background-clip:text; background-clip:text; color:transparent}
+.hero-copy > p{font-size:19px; color:var(--ink); max-width:56ch}
+.hero-copy > p.hero-secondary{font-size:16.5px; color:var(--ink-soft)}
+.actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+.actions a{display:inline-flex; align-items:center; gap:9px; padding:13px 22px; border-radius:999px; font-weight:700; font-size:15px; text-decoration:none; transition:transform .2s, box-shadow .2s, background .2s}
+.actions a:hover{transform:translateY(-2px)}
+.actions a.primary{background:var(--plum-dark); color:#fff; box-shadow:0 12px 28px rgba(58,29,76,.22)}
+.actions a.primary:hover{background:var(--plum)}
+.actions a.quiet{background:var(--paper); color:var(--plum-dark); border:1px solid var(--line); box-shadow:var(--shadow)}
+
+.hero-orbit{position:relative; width:min(500px,100%); aspect-ratio:1; margin:auto}
+.ring{position:absolute; border-radius:50%}
+.ring.r1{inset:6%; border:1px dashed rgba(91,46,116,.25); animation:spin 90s linear infinite}
+.ring.r2{inset:24%; border:1px solid rgba(111,158,132,.3); background:radial-gradient(circle, rgba(255,255,255,.9), rgba(251,231,239,.5)); animation:spin 60s linear infinite reverse}
+.compass{position:absolute; inset:33%; border-radius:50%; background:var(--paper); box-shadow:var(--shadow-lg); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px; z-index:2}
+.compass svg{width:30px; height:30px; color:var(--rose)}
+.compass small{font-size:10.5px; font-weight:700; letter-spacing:.14em; color:var(--sage)}
+.compass strong{font-family:var(--slab); font-weight:400; font-size:17px; color:var(--plum-dark)}
+.module-point{position:absolute; z-index:3; white-space:nowrap; padding:8px 13px; border-radius:999px; background:var(--paper); border:1px solid var(--line); box-shadow:0 8px 22px rgba(58,29,76,.1); font-size:12.5px; font-weight:700; color:var(--plum-dark);
+  left:calc(50% + 43% * sin(var(--a))); top:calc(50% - 43% * cos(var(--a))); transform:translate(-50%,-50%);
+  transition:background .25s, color .25s, box-shadow .25s}
+.module-point:hover{background:var(--plum-dark); color:#fff; box-shadow:0 12px 26px rgba(58,29,76,.25)}
+.module-1{--a:0deg}.module-2{--a:45deg}.module-3{--a:90deg}.module-4{--a:135deg}.module-5{--a:180deg}.module-6{--a:225deg}.module-7{--a:270deg}.module-8{--a:315deg}
+
+/* ---------- horizon strip ---------- */
+.horizon{display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:18px; padding:22px 20px; background:linear-gradient(90deg, var(--rose-soft), var(--sage-soft)); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.horizon span{font-family:var(--slab); font-size:18px; color:var(--plum-dark)}
+.horizon i{width:7px; height:7px; border-radius:50%; background:var(--rose)}
+.horizon i:nth-of-type(2){background:var(--sage)} .horizon i:nth-of-type(3){background:var(--gold)}
+
+/* ---------- section headings ---------- */
+.heading{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:38px}
+.heading > p{max-width:38ch; margin:0; font-size:16px}
+
+/* ---------- projects ---------- */
+.projects{display:flex; flex-direction:column; gap:18px}
+.project{position:relative; background:var(--paper); border:1px solid var(--line); border-radius:26px; box-shadow:var(--shadow); overflow:hidden; transition:box-shadow .3s, transform .3s}
+.project::before{content:""; position:absolute; left:0; right:0; top:0; height:4px; background:linear-gradient(90deg,var(--plum),var(--rose),var(--sage))}
+.project:hover{box-shadow:var(--shadow-lg)}
+.project summary{list-style:none; cursor:pointer; display:grid; grid-template-columns:76px 1fr 220px 40px; gap:24px; align-items:center; padding:32px 34px}
+.project summary::-webkit-details-marker{display:none}
+.number{font-family:var(--slab); font-weight:300; font-size:46px; line-height:1; color:var(--rose)}
+.project summary small{display:block; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--sage); margin-bottom:6px}
+.project summary h3{font-size:clamp(25px,2.8vw,34px); line-height:1.15; margin-bottom:8px}
+.project summary p{margin:0 0 12px; font-size:15.5px}
+.tags{display:flex; flex-wrap:wrap; gap:7px}
+.tags span{font-size:12.5px; font-weight:700; padding:5px 12px; border-radius:999px; background:var(--sage-soft); color:#3f6e55}
+.stat{border-left:1px solid var(--line); padding-left:24px}
+.stat strong{display:block; font-family:var(--slab); font-weight:400; font-size:clamp(34px,3.6vw,46px); line-height:1.05; background:linear-gradient(100deg,var(--plum),var(--rose)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.stat span{display:block; font-size:12.5px; line-height:1.45; color:var(--ink-faint); margin-top:6px}
+svg.lucide.chevron{width:40px; height:40px; padding:10px; border-radius:50%; border:1px solid var(--line); color:var(--plum); transition:transform .35s, background .25s}
+.project summary:hover .chevron{background:var(--rose-soft)}
+.project[open] .chevron{transform:rotate(180deg)}
+
+.project-body{position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:0 34px 34px; animation:openUp .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes openUp{from{opacity:0; transform:translateY(-8px)}to{opacity:1; transform:none}}
+.project-body article{background:linear-gradient(165deg,#fdfbf8,var(--bg)); border:1px solid var(--line); border-radius:18px; padding:22px 22px 18px; transition:transform .25s, box-shadow .25s}
+.project-body article:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+.project-body article > span{display:block; font-size:11.5px; font-weight:700; letter-spacing:.14em; color:var(--rose); margin-bottom:10px}
+.project-body article p{margin:0; font-size:15px; color:var(--ink)}
+.project-gallery,.chart-figure,.project-links{grid-column:1 / -1}
+.project-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:6px}
+.project-gallery figure{margin:0; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:8px; box-shadow:0 1px 2px rgba(58,29,76,.05); transition:transform .25s, box-shadow .25s; cursor:zoom-in}
+.project-gallery figure:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg)}
+.project-gallery img{width:100%; aspect-ratio:4/3; object-fit:contain; background:#fff; border-radius:10px}
+.project-gallery figure:first-child img{object-fit:cover}
+.project-gallery figcaption{font-size:12.5px; font-weight:600; color:var(--ink-soft); text-align:center; padding:8px 4px 2px}
+.project-links{display:flex; flex-wrap:wrap; gap:24px; margin-top:6px}
+.project-links a{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14.5px; color:var(--plum-dark); text-decoration:none; padding-bottom:3px; border-bottom:2px solid var(--rose); transition:color .2s, border-color .2s}
+.project-links a:hover{color:var(--plum); border-color:var(--sage)}
+.project-links svg{width:15px; height:15px}
+.margin-note{position:absolute; right:34px; bottom:30px; margin:0; font-size:11px; color:var(--ink-faint)}
+.margin-note::before{display:none}
+
+/* F1 chart */
+.chart-figure{margin:6px 0 0}
+.bar-chart{background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:20px 24px 16px; max-width:560px}
+.bc-title{font-family:var(--slab); font-size:17px; color:var(--plum-dark)}
+.bc-legend{display:flex; gap:18px; font-size:12.5px; color:var(--ink-soft); margin:6px 0 14px}
+.bc-legend i{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:6px; vertical-align:-1px}
+.u{background:var(--plum)} .s{background:var(--rose)}
+.bc-legend i.u{background:var(--plum)} .bc-legend i.s{background:var(--rose)}
+.bc-plot{display:flex; justify-content:space-around; align-items:flex-end; height:190px; border-bottom:1px solid var(--line); padding:0 10px}
+.bc-group{display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end}
+.bc-bars{display:flex; align-items:flex-end; gap:10px; height:100%}
+.bc-bar{position:relative; width:58px; height:calc(var(--h) / 0.04 * 100%); border-radius:10px 10px 0 0; transform-origin:bottom; transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.bc-bar.u{background:linear-gradient(180deg,#7b4596,var(--plum))}
+.bc-bar.s{background:linear-gradient(180deg,#e58aae,var(--rose))}
+.bc-bar b{position:absolute; top:-22px; left:50%; transform:translateX(-50%); font-size:12px; font-weight:700; color:var(--ink-soft)}
+.bc-group > span{position:relative; top:30px; font-size:13px; font-weight:600; color:var(--ink-soft); white-space:nowrap}
+.bc-axis{font-size:11.5px; color:var(--ink-faint); margin-top:34px}
+.js .bar-chart:not(.drawn) .bc-bar{transform:scaleY(0)}
+
+/* ---------- about ---------- */
+.garden{background:linear-gradient(180deg, transparent, rgba(251,231,239,.55) 18%, rgba(251,231,239,.55) 82%, transparent)}
+.about{display:grid; grid-template-columns:.85fr 1.15fr; gap:56px; align-items:center}
+.personal-flag{background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:28px; box-shadow:var(--shadow-lg); transform:rotate(-1.5deg); transition:transform .4s}
+.personal-flag:hover{transform:rotate(0)}
+.personal-flag img{width:100%; border-radius:18px; margin-bottom:20px; background:var(--rose-soft)}
+.personal-flag blockquote{margin:0; font-family:var(--slab); font-size:21px; line-height:1.4; color:var(--plum-dark)}
+.personal-flag cite{display:block; margin-top:12px; font-family:var(--sans); font-style:normal; font-size:13px; color:var(--ink-faint)}
+.about h2{margin-bottom:18px}
+.lead{font-size:19px; color:var(--ink)}
+.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:24px}
+.facts span{display:flex; flex-direction:column; gap:4px; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:16px; font-size:13px; color:var(--ink-soft); box-shadow:var(--shadow); transition:transform .25s}
+.facts span:hover{transform:translateY(-3px)}
+.facts b{font-family:var(--slab); font-weight:500; font-size:24px; color:var(--plum)}
+
+/* ---------- reading ---------- */
+.interests{padding-top:40px; padding-bottom:40px}
+.interests .heading{margin-bottom:26px}
+.interests h2{font-size:clamp(28px,3.2vw,38px)}
+.reading-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px}
+.book-card{display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:10px; box-shadow:var(--shadow); transition:transform .3s, box-shadow .3s}
+.book-card:hover{transform:translateY(-5px) rotate(-.6deg); box-shadow:var(--shadow-lg)}
+.book-card img{width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:10px; box-shadow:0 8px 18px rgba(58,29,76,.16)}
+.book-copy{padding:10px 4px 4px}
+.book-copy small{font-size:11px; font-weight:700; letter-spacing:.05em; color:var(--rose)}
+.book-copy h3{font-size:16.5px; line-height:1.25; margin:2px 0 4px}
+.book-copy p{font-size:12.5px; line-height:1.5; margin:0}
+.book-memory{display:inline-block; margin-top:8px; padding:3px 10px; border-radius:999px; background:var(--plum-dark); color:#fff; font-size:11px; font-weight:700}
+.shelf-note{display:flex; justify-content:center; margin-top:20px; color:var(--ink-faint); font-size:11.5px}
+.shelf-note::before{display:none}
+
+/* ---------- final-year project ---------- */
+.next{background:linear-gradient(180deg, transparent, rgba(231,241,234,.8) 18%, rgba(231,241,234,.8) 82%, transparent)}
+.next-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center}
+.fyp-title{font-size:clamp(30px,3.6vw,44px); margin-bottom:20px}
+.fyp-title em{font-style:normal; color:var(--rose)}
+.next-grid > div:first-child p{font-size:16.5px}
+.sat-art{margin-top:18px; max-width:420px}
+.sat-art svg{width:100%; height:auto; overflow:visible}
+.sat-art .sat{animation:drift 6s ease-in-out infinite; transform-origin:210px 80px}
+.sat-art .signal{stroke-dasharray:520; stroke-dashoffset:520; animation:draw 4s ease-in-out infinite}
+.sat-art .blip{animation:blip 4s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes draw{0%{stroke-dashoffset:520}55%,100%{stroke-dashoffset:0}}
+@keyframes blip{0%,45%{opacity:0; r:2}55%{opacity:1; r:9}70%,100%{opacity:.8; r:6}}
+.map-log{position:relative; background:var(--paper); border:1px solid var(--line); border-radius:26px; padding:28px; box-shadow:var(--shadow-lg)}
+.map-top{display:flex; align-items:center; gap:10px; font-size:12px; font-weight:700; letter-spacing:.12em; color:var(--sage); margin-bottom:18px}
+.map-top svg{color:var(--rose)}
+.map-log ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.map-log li{display:flex; gap:16px; align-items:center; padding:14px 16px; border-radius:16px; border:1px solid var(--line); background:#fdfbf8}
+.map-log li b{flex:none; width:38px; height:38px; display:grid; place-items:center; border-radius:50%; background:var(--bg); border:1px solid var(--line); font-family:var(--slab); font-weight:500; color:var(--ink-faint)}
+.map-log li span{display:flex; flex-direction:column; font-weight:700; color:var(--ink)}
+.map-log li small{font-weight:500; font-size:12.5px; color:var(--ink-faint)}
+.map-log li.done{background:var(--sage-soft); border-color:rgba(111,158,132,.35)}
+.map-log li.done b{background:var(--sage); border-color:var(--sage); color:#fff}
+.map-log > svg{position:absolute; right:22px; top:22px; color:var(--rose-soft); width:28px; height:28px}
+
+/* ---------- recognition ---------- */
+.recognition{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:center}
+.recognition h2{margin-bottom:18px}
+.cert-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+.cert{display:flex; flex-direction:column; gap:12px; background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:12px; text-decoration:none; box-shadow:var(--shadow); transition:transform .3s, box-shadow .3s}
+.cert:hover{transform:translateY(-5px); box-shadow:var(--shadow-lg)}
+.cert img{width:100%; aspect-ratio:1.414; object-fit:cover; object-position:top; border-radius:14px; background:var(--rose-soft)}
+.cert span{display:flex; justify-content:space-between; align-items:center; gap:8px; padding:0 6px 6px; font-weight:700; color:var(--plum-dark)}
+
+/* ---------- contact ---------- */
+.contact{position:relative; overflow:hidden; text-align:center; margin-top:40px; margin-bottom:40px; padding:80px 32px; border-radius:36px; color:#fff;
+  background:radial-gradient(circle at 85% 0%, rgba(212,97,143,.55), transparent 24rem), radial-gradient(circle at 0% 100%, rgba(111,158,132,.45), transparent 22rem), linear-gradient(135deg,var(--plum-dark),var(--plum)); box-shadow:var(--shadow-lg)}
+.contact > svg.lucide{display:block; width:44px; height:44px; color:#f7c2d8; margin:0 auto 10px}
+.contact .hand{color:#f7c2d8; justify-content:center}
+.contact h2{color:#fff; font-weight:300; font-size:clamp(38px,5vw,60px); margin-bottom:16px}
+.contact p{color:rgba(255,255,255,.85); max-width:56ch; margin:0 auto; font-size:17px}
+.contact .actions{justify-content:center}
+.contact .actions a.primary{background:#fff; color:var(--plum-dark)}
+.contact .actions a.primary:hover{background:var(--rose-soft)}
+.contact .actions a.quiet.light{background:rgba(255,255,255,.12); color:#fff; border-color:rgba(255,255,255,.35); box-shadow:none}
+
+
+.email-line{display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:12px; margin:26px 0 4px}
+.email-line .email-text{font-family:var(--slab); font-size:clamp(19px,2.4vw,24px); color:#fff; word-break:break-all; user-select:all}
+
+.copy-email{border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.12); color:#fff; border-radius:999px; padding:7px 14px; font:700 13px var(--sans); cursor:pointer; transition:background .2s}
+.copy-email:hover{background:rgba(255,255,255,.22)}
+.contact .actions{margin-top:18px}
+/* ---------- footer ---------- */
+footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:26px 0 40px; border-top:1px solid var(--line); font-size:13.5px; color:var(--ink-faint)}
+footer a{color:var(--plum); font-weight:600; text-decoration:none}
+
+/* ---------- image viewer ---------- */
+.viewer{position:fixed; inset:0; z-index:100; display:none; place-items:center; padding:24px; background:rgba(28,14,38,.86)}
+.viewer.open{display:grid}
+.viewer img{max-width:min(1100px,100%); max-height:86vh; border-radius:12px; background:#fff}
+.viewer button{position:absolute; top:18px; right:18px; width:42px; height:42px; border-radius:50%; border:0; background:#fff; color:var(--plum-dark); font-size:22px; cursor:pointer}
+
+/* ---------- motion ---------- */
+@keyframes spin{to{transform:rotate(360deg)}}
+.js .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1; transform:none}
+.js .hero-copy > *{opacity:0; transform:translateY(14px); animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.js .hero-copy > *:nth-child(2){animation-delay:.08s}.js .hero-copy > *:nth-child(3){animation-delay:.16s}.js .hero-copy > *:nth-child(4){animation-delay:.24s}.js .hero-copy > *:nth-child(5){animation-delay:.32s}
+.js .hero-orbit{opacity:0; animation:fadeIn 1.1s ease .3s forwards}
+@keyframes rise{to{opacity:1; transform:none}}
+@keyframes fadeIn{to{opacity:1}}
+
+/* ---------- responsive ---------- */
+@media(max-width:1000px){
+  .hero,.about,.next-grid,.recognition{grid-template-columns:1fr}
+  .hero{gap:20px}
+  .hero-orbit{width:min(460px,100%)}
+  .reading-grid{grid-template-columns:repeat(3,1fr)}
+  .heading{flex-direction:column; align-items:flex-start; gap:14px}
+}
+@media(max-width:860px){
+  .project summary{grid-template-columns:50px 1fr 36px; padding:24px 20px; gap:14px; align-items:start}
+  .project summary .number{padding-top:20px}
+  svg.lucide.chevron{margin-top:14px}
+  .map-log > svg{display:none}
+  .number{font-size:32px}
+  .stat{grid-column:2; grid-row:2; border-left:0; padding-left:0}
+  .chevron{grid-column:3; grid-row:1}
+  .project-body{grid-template-columns:1fr; padding:0 20px 56px}
+  .project-gallery{grid-template-columns:repeat(2,1fr)}
+  .margin-note{right:20px; bottom:20px}
+}
+@media(max-width:700px){
+  .section{padding:68px 0}
+  .nav > button{display:block}
+  .nav nav{display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; padding:8px 20px 16px; background:var(--paper); border-bottom:1px solid var(--line); box-shadow:var(--shadow)}
+  .nav nav.open{display:flex}
+  .nav nav a{padding:12px 0; border-bottom:1px solid var(--line)}
+  .nav nav a::after{display:none}
+  .nav nav a.hello{margin-top:10px; text-align:center; border-bottom:0}
+  .hero{padding:48px 0 40px}
+  .hero-orbit{aspect-ratio:auto; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:18px 0}
+  .ring{display:none}
+  .compass{position:static; inset:auto; width:100%; border-radius:20px; padding:18px; margin-bottom:6px; flex-direction:row; justify-content:center}
+  .module-point{position:static; transform:none}
+  .reading-grid{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 14px; margin:0 -20px; padding-left:20px; padding-right:20px}
+  .book-card{flex:0 0 150px; scroll-snap-align:start}
+  .facts,.cert-grid{grid-template-columns:1fr}
+  .project-gallery{grid-template-columns:1fr 1fr}
+  .bc-bar{width:42px}
+  .contact{padding:56px 22px; border-radius:26px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important; transition:none !important}
+  .js .reveal,.js .hero-copy > *,.js .hero-orbit{opacity:1 !important; transform:none !important}
+  .js .bar-chart .bc-bar{transform:none !important}
+  .sat-art .signal{stroke-dashoffset:0}
+}
+
+</style>
+</head>
+<body>
+<main id="top"><header class="nav"><button aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button><nav class=""><a href="#work">Projects</a><a href="#about">About</a><a href="#next">Final-year project</a><a href="#interests">Interests</a><a class="hello" href="#contact">Contact</a></nav></header><section class="hero wrap"><div class="hero-copy"><span class="chapter">Salma Ahmed · Software Engineer | Electronics</span><h1>Software Engineering<br><em>with Electronics.</em></h1><p>I'm interested in how software and hardware come together, and how the technology we build can have a meaningful impact on people's lives.</p><p class="hero-secondary">Through my studies and projects, I'm exploring different areas of software engineering, electronics, embedded systems and machine learning, while continuing to develop my technical skills. I'm keen to learn, take on new challenges and broaden my experience across both software and hardware as I develop as an engineer.</p><div class="actions"><a class="primary" href="#work">View my projects <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg></a><a class="quiet" href="docs/SalmaAhmedCV.pdf" download="SalmaAhmedCV.pdf">Download my CV <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down" aria-hidden="true"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg></a></div></div><div class="hero-orbit" aria-label="Key university modules"><div class="ring r1"></div><div class="ring r2"></div><div class="compass"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"></path></svg><small>ENGINEERING MODULES</small><strong>software ↔ hardware</strong></div><span class="module-point module-1">Operating Systems</span><span class="module-point module-2">Sensors &amp; Signals</span><span class="module-point module-3">Object-Oriented Programming</span><span class="module-point module-4">Embedded Systems</span><span class="module-point module-5">Applied Mathematics</span><span class="module-point module-6">Cyber Security</span><span class="module-point module-7">Algorithms</span><span class="module-point module-8">Electronics</span></div></section><div class="horizon"><span>software</span><i></i><span>electronics</span><i></i><span>responsible data</span><i></i><span>human impact</span></div><section id="work" class="section wrap"><div class="heading"><div><span class="hand">selected work</span><h2>Selected Engineering<br>Projects</h2></div><p>Four projects across machine learning, embedded hardware, backend systems and web development, each with the skills it used.</p></div><div class="projects"><details class="project" open=""><summary><span class="number">01</span><div><small>Machine Learning · Responsible AI</small><h3>F1 Predictive Bias &amp; Fairness</h3><p>Testing whether one regression model produced different error rates for top-tier and other Formula 1 teams.</p><div class="tags"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>Data cleaning</span><span>Model evaluation</span><span>Bias analysis</span></div></div><div class="stat"><strong>92%</strong><span>smaller gap in error between team tiers</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down chevron" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary><div class="project-body"><article><span>THE OBJECTIVE</span><p>Predict lap-time variation from stint length, air temperature and tyre compound, then check whether prediction error differed between team tiers.</p></article><article><span>MY APPROACH</span><p>Working with my teammate Momena, I cleaned a 7,374-row dataset, encoded categorical features and trained a depth-limited DecisionTreeRegressor. I measured subgroup MAE with one unified model, then split the same training and test data by team tier and fitted a separate model to each group.</p></article><article><span>THE OUTCOME</span><p>The specialised models cut the gap in subgroup MAE by 92%, the largest reduction of the three approaches in our team report. Their overall error was slightly higher, showing that improved parity did not automatically mean improved predictive accuracy.</p></article><figure class="chart-figure"><div class="bar-chart" role="img" aria-label="Unified vs Specialised Models: mean absolute error for top-tier and other teams">
+<div class="bc-title">Unified vs Specialised Models</div>
+<div class="bc-legend"><span><i class="u"></i>Unified</span><span><i class="s"></i>Specialised</span></div>
+<div class="bc-plot">
+<div class="bc-group"><div class="bc-bars"><div class="bc-bar u" style="--h:0.0319"><b>0.032</b></div><div class="bc-bar s" style="--h:0.0362"><b>0.036</b></div></div><span>Top tier</span></div>
+<div class="bc-group"><div class="bc-bars"><div class="bc-bar u" style="--h:0.0350"><b>0.035</b></div><div class="bc-bar s" style="--h:0.0360"><b>0.036</b></div></div><span>Other tier</span></div>
+</div><div class="bc-axis">MAE</div></div></figure><div class="project-links"><a href="docs/salma-momena-f1-notebook.html" target="_blank" rel="noopener">Open notebook<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><a href="docs/F1ResearchReport.pdf" target="_blank" rel="noopener noreferrer">Read research report<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></div><span class="hand margin-note">notes from the journey</span></div></details><details class="project" open=""><summary><span class="number">02</span><div><small>Embedded Systems · Hardware</small><h3>Micro-Mouse Autonomous Robot</h3><p>An autonomous maze robot combining infrared sensing, stepper-motor control and route planning.</p><div class="tags"><span>C++</span><span>LPC1768 microcontroller</span><span>Soldering</span><span>Circuit building &amp; debugging</span><span>IR sensors</span><span>Motor drivers</span><span>Team coordination</span></div></div><div class="stat"><strong>8 × 8</strong><span>maze solved, with the shortest path found by run 5</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down chevron" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary><div class="project-body"><article><span>THE OBJECTIVE</span><p>Design a robot that could detect maze walls, track its position and choose a route through an unknown 8 × 8 maze.</p></article><article><span>MY APPROACH</span><p>The prototype used an MBED LPC1768, seven active-low infrared sensors and two stepper motors driven through L297 controllers and ULN2003A arrays. The program grouped sensor inputs with BusIn, stored wall and distance grids, and used a sense-plan-act loop with flood-fill path planning. I led the sensing work and coordinated the team: the plan, task split, meetings and logbook.</p></article><article><span>THE OUTCOME</span><p>Testing progressed from individual direction, sensor and wall-mapping functions to full maze runs. Run 1 failed when vibration loosened a motor wire, and run 2 took a wrong turn because of a flickering sensor, which we fixed by averaging 8 readings instead of 4. The robot reached the goal on run 3 and found the shortest path by run 5.</p></article><div class="project-gallery"><figure><img src="micromouse/control-board.jpg" alt="Micromouse prototype control board with wired components"><figcaption>Prototype control board</figcaption></figure><figure><img src="micromouse/motor-driver-schematic.jpg" alt="Motor driver circuit schematic used in the Micromouse project"><figcaption>Motor driver design</figcaption></figure><figure><img src="micromouse/navigation-flowchart.jpg" alt="Flowchart showing the Micromouse navigation logic"><figcaption>Navigation logic</figcaption></figure><figure><img src="micromouse/sensor-code.jpg" alt="C code used to read Micromouse wall sensors"><figcaption>Sensor code</figcaption></figure><figure><img src="micromouse/state-machine-code.jpg" alt="Micromouse state machine code: explore, return and speed-run phases"><figcaption>State machine</figcaption></figure><figure><img src="micromouse/navigation-concept.jpg" alt="Early Micromouse navigation concept flowchart"><figcaption>Navigation concept</figcaption></figure></div><div class="project-links"><a href="docs/salma-ahmed-micromouse-report.pdf" target="_blank" rel="noopener noreferrer">Read the clean project report<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></div><span class="hand margin-note">notes from the journey</span></div></details><details class="project" open=""><summary><span class="number">03</span><div><small>Data Streaming · Backend Systems</small><h3>SensorStream: Real-Time Sensor Pipeline</h3><p>A Python and Kafka pipeline that streams live sensor readings, stores them safely and flags unusual values.</p><div class="tags"><span>Python</span><span>Apache Kafka</span><span>SQLite</span><span>Docker Compose</span><span>Unit testing</span><span>Serial (MBED/PIC)</span></div></div><div class="stat"><strong>27</strong><span>automated tests passing</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down chevron" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary><div class="project-body"><article><span>THE OBJECTIVE</span><p>Move live sensor readings through a backend system instead of processing everything in one script, and make sure no reading is lost or stored twice along the way.</p></article><article><span>MY APPROACH</span><p>A Python producer sends simulated thermistor readings, or live data from an MBED or PIC board over serial, into a Kafka topic with three partitions. Separate consumers log, store and monitor the stream. Each reading's position in the stream is saved in SQLite, so a restarted consumer skips anything it has already stored, and messages that can't be processed go to a dead-letter topic with a note of where they came from.</p></article><article><span>THE OUTCOME</span><p>Unusual values are caught with rolling z-scores and hard limits and published to their own anomaly topic. The whole system starts with one Docker Compose command, and 27 automated tests cover the main paths.</p></article><div class="project-links"><a href="https://github.com/salma-ahmed-dev/SensorStream-Kafka" target="_blank" rel="noopener noreferrer">View on GitHub<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></div><span class="hand margin-note">notes from the journey</span></div></details><details class="project" open=""><summary><span class="number">04</span><div><small>Web Development · Hackathon</small><h3>MasonBee</h3><p>A sustainable home-renovation app for UK first-time buyers, built in a team at the HuddleHive Women in Tech hackathon, hosted by Accurx.</p><div class="tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Gemini API</span><span>Scoping to a deadline</span></div></div><div class="stat"><strong>2nd</strong><span>place at the hackathon</span></div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down chevron" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary><div class="project-body"><article><span>THE OBJECTIVE</span><p>Build a working app in a short, fixed time that helps first-time buyers plan greener home renovations.</p></article><article><span>MY APPROACH</span><p>I worked on the front end and connected the app to the Gemini API. I also helped the team scope what was realistic, so we got the main user journey working before adding extras.</p></article><article><span>THE OUTCOME</span><p>We delivered a working main journey within the time limit, and our team placed second.</p></article><div class="project-links"><a href="https://github.com/salma-ahmed-dev" target="_blank" rel="noopener noreferrer">Explore my GitHub<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></div><span class="hand margin-note">notes from the journey</span></div></details></div></section><section id="about" class="section garden"><div class="wrap about"><div class="personal-flag"><img src="images/straw-hat-flag.jpg" alt="Straw Hat pirate flag"><blockquote>“If you don’t take risks, you can’t create a future.”<cite>— Monkey D. Luffy, <em>Clockwork Island Adventure</em></cite></blockquote></div><div><span class="hand">a little context</span><h2>About Me</h2><p class="lead">I am a final-year Software Engineering with Electronics student interested in software development, responsible data and connected technology.</p><p>My long-term goal is to work in health-tech, where reliable software and thoughtful design can improve patient, staff or clinical experiences.</p><p>Alongside my degree, working in university front-of-house has strengthened my communication, organisation and ability to respond calmly to real user needs.</p><p>I also volunteer each week as a children’s chess-club coach at my local library, which has strengthened how I explain ideas, encourage confidence and adapt to different learners.</p><div class="facts"><span><b>BEng</b>Software Engineering with Electronics</span><span><b>2027</b>Graduate roles</span><span><b>London</b>Based</span></div></div></div></section><section id="next" class="section next"><div class="wrap next-grid"><div><span class="hand">selected final-year project · SR1</span><h2 class="fyp-title">Real-Time Satellite Health Monitoring<br><em>&amp; Anomaly Detection System</em></h2><p>The selected brief centres on simulated spacecraft telemetry, machine-learning anomaly detection and an online monitoring dashboard. The final scope, datasets, technical approach and milestones are still to be confirmed and will be documented here as the project develops.</p><div class="sat-art" aria-hidden="true"><svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="panel" x1="0" x2="1"><stop offset="0" stop-color="#5b2e74"/><stop offset="1" stop-color="#8a4fa8"/></linearGradient></defs>
+<circle cx="70" cy="60" r="2" fill="#d4618f"/><circle cx="380" cy="34" r="2.5" fill="#e2b25b"/><circle cx="330" cy="160" r="1.8" fill="#6f9e84"/><circle cx="30" cy="150" r="2.2" fill="#e2b25b"/>
+<g class="sat"><rect x="96" y="62" width="70" height="36" rx="4" fill="url(#panel)"/><path d="M110 62v36M124 62v36M138 62v36M152 62v36" stroke="#fff" stroke-opacity=".35"/>
+<rect x="254" y="62" width="70" height="36" rx="4" fill="url(#panel)"/><path d="M268 62v36M282 62v36M296 62v36M310 62v36" stroke="#fff" stroke-opacity=".35"/>
+<path d="M166 80h22M232 80h22" stroke="#5b2e74" stroke-width="3"/><rect x="188" y="58" width="44" height="44" rx="9" fill="#fff" stroke="#5b2e74" stroke-width="3"/>
+<circle cx="210" cy="80" r="8" fill="#d4618f"/><path d="M210 58V42" stroke="#5b2e74" stroke-width="3"/><circle cx="210" cy="38" r="5" fill="#e2b25b"/></g>
+<path class="signal" d="M20 178 C 70 178, 80 150, 120 160 S 170 186, 200 168 S 240 128, 262 156 L 272 118 L 282 172 S 330 176, 400 170" fill="none" stroke="#6f9e84" stroke-width="3" stroke-linecap="round"/>
+<circle class="blip" cx="272" cy="118" r="6" fill="#d4618f"/></svg></div></div><div class="map-log"><div class="map-top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"></path></svg><span>PROJECT DEVELOPMENT · 2026—27</span></div><ol><li class="done"><b>01</b><span>SR1 topic selected<small>Confirmed</small></span></li><li><b>02</b><span>Scope &amp; requirements<small>Pending</small></span></li><li><b>03</b><span>Design &amp; implementation<small>Pending</small></span></li><li><b>04</b><span>Testing &amp; final evaluation<small>Expected 2027</small></span></li></ol><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-waves-horizontal" aria-hidden="true"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0"></path><path d="M2 19q2.5 2 5 0t5 0 5 0 5 0"></path><path d="M2 5q2.5 2 5 0t5 0 5 0 5 0"></path></svg></div></div></section><section class="section wrap recognition"><div><span class="hand">recognition</span><h2>Learning beyond<br>the timetable.</h2><p>Femetronics’ six-week AI/ML F1 Flux programme deepened my work in data analysis and ethical bias mitigation. My Work-Based Learning Project also developed practical problem-solving, communication, teamwork and presentation skills through an organisation-led challenge.</p></div><div class="cert-grid"><a class="cert" href="images/SalmaCert.jpg" target="_blank" rel="noopener"><img src="images/SalmaCert.jpg" alt="AI/ML F1 Flux certificate awarded to Salma Ahmed"><span>AI/ML F1 Flux <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a><a class="cert" href="docs/work-based-learning-certificate.pdf" target="_blank" rel="noopener"><img src="images/work-based-learning-certificate.jpg" alt="University of Westminster Work-Based Learning Project certificate awarded to Salma Ahmed"><span>Work-Based Learning Project <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span></a></div></section><section id="interests" class="section wrap interests"><div class="heading"><div><span class="hand">currently reading, eventually finishing</span><h2>A Shelf with<br>No Single Genre</h2></div><p>I read a little bit of everything. These titles give a fairly accurate picture of the range.</p></div><div class="reading-grid"><article class="book-card"><img src="books/half-a-soul.jpg" alt="Half a Soul book cover"><div class="book-copy"><small>Olivia Atwater</small><h3>Half a Soul</h3><p>Whimsical fantasy, sharp manners and a heroine missing half her soul.</p></div></article><article class="book-card"><img src="books/the-analects.jpg" alt="The Analects book cover"><div class="book-copy"><small>Confucius</small><h3>The Analects</h3><p>“When I walk along with two others, they may serve me as my teachers.” A good reminder that there’s something to learn from almost anyone.</p></div></article><article class="book-card"><img src="books/paradise-lost.jpg" alt="Paradise Lost cover, with Gustave Doré's engraving of Satan"><div class="book-copy"><small>John Milton</small><h3>Paradise Lost</h3><p>“Things unattempted yet in prose or rhyme.” A reminder to stay curious, explore unfamiliar ideas and not be afraid to try something new.</p></div></article><article class="book-card"><img src="books/the-hunger-games.jpg" alt="The Hunger Games book cover"><div class="book-copy"><small>Suzanne Collins</small><h3>The Hunger Games</h3><p>A fast, sharp dystopia about survival, power and who controls the story.</p></div></article><article class="book-card"><img src="books/twilight.jpg" alt="Twilight book cover"><div class="book-copy"><small>Stephenie Meyer</small><h3>Twilight</h3><p>I first read the series over a Christmas holiday and have reread it many times since.</p><span class="book-memory">a ten-year favourite</span></div></article></div><span class="hand shelf-note">from Regency magic to seventeenth-century epic poetry</span></section><section id="contact" class="contact wrap"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flower2 lucide-flower-2" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"></path><circle cx="12" cy="8" r="2"></circle><path d="M12 10v12"></path><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"></path><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"></path></svg><span class="hand">open to 2027 opportunities</span><h2>Get in Touch</h2><p>I am open to 2027 graduate software-engineering opportunities, particularly in health-tech and other human-centred technology sectors.</p><div class="email-line"><span class="email-text">s.ahmed124@hotmail.com</span><button type="button" class="copy-email" data-email="s.ahmed124@hotmail.com">Copy email</button></div><div class="actions"><a class="primary" href="mailto:s.ahmed124@hotmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>Email me</a><a class="quiet light" href="https://github.com/salma-ahmed-dev" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml" aria-hidden="true"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>View GitHub</a></div></section><footer class="wrap"><span>Salma Ahmed © 2026</span><span>Built like a story: one thoughtful chapter at a time.</span><a href="#top">Back to top ↑</a></footer></main>
+<div class="viewer" id="viewer" aria-hidden="true"><button type="button" aria-label="Close image">×</button><img alt=""></div>
+<script>
+
+// copy email address (works even when no mail app is set up)
+document.querySelectorAll('.copy-email').forEach(b=>b.addEventListener('click',async()=>{
+  const e=b.dataset.email;
+  try{await navigator.clipboard.writeText(e);}catch(_){const t=document.createElement('textarea'); t.value=e; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove();}
+  const old=b.textContent; b.textContent='Copied ✓'; setTimeout(()=>b.textContent=old,1800);
+}));
+
+// mobile menu
+const menuBtn=document.querySelector('.nav > button'), menu=document.querySelector('.nav nav');
+menuBtn.addEventListener('click',()=>{const o=menu.classList.toggle('open'); menuBtn.setAttribute('aria-expanded',o);});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+// hide any image that is missing, rather than showing a broken icon
+document.querySelectorAll('img').forEach(img=>{
+  const fail=()=>{const fig=img.closest('figure'); if(fig) fig.remove(); else img.style.display='none';};
+  if(img.complete && img.naturalWidth===0 && img.getAttribute('src')) fail(); else img.addEventListener('error',fail);
+});
+
+// click a gallery image to view it larger
+const viewer=document.getElementById('viewer'), vImg=viewer.querySelector('img');
+function closeViewer(){viewer.classList.remove('open'); viewer.setAttribute('aria-hidden','true');}
+document.querySelectorAll('.project-gallery img').forEach(img=>img.addEventListener('click',()=>{vImg.src=img.src; vImg.alt=img.alt; viewer.classList.add('open'); viewer.setAttribute('aria-hidden','false'); viewer.querySelector('button').focus();}));
+viewer.addEventListener('click',e=>{if(e.target!==vImg) closeViewer();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeViewer();});
+
+// fade sections in as you scroll, and draw the F1 chart
+(function(){
+  const els=document.querySelectorAll('.heading, .project, .about > div, .book-card, .next-grid > div, .recognition > div, .cert, .contact, .facts span');
+  const chart=document.querySelector('.bar-chart');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in')); if(chart) chart.classList.add('drawn'); return;}
+  const io=new IntersectionObserver(entries=>entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const t=en.target;
+    if(t===chart){t.classList.add('drawn');}
+    else{t.classList.add('in'); setTimeout(()=>{t.classList.remove('reveal','in'); t.style.transitionDelay='';},1400);}
+    io.unobserve(t);
+  }),{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>{
+    e.classList.add('reveal');
+    const sibs=[...e.parentElement.children].filter(c=>c.matches('.book-card, .cert, .facts span, .project'));
+    const i=sibs.indexOf(e); if(i>0) e.style.transitionDelay=(Math.min(i,4)*90)+'ms';
+    io.observe(e);
+  });
+  if(chart) io.observe(chart);
+})();
+</script>
+</body>
+</html>
